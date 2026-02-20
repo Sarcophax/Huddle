@@ -87,6 +87,8 @@ class FragmentTask : Fragment(R.layout.fragment_task) {
 
         currentDateTxt.text = formatted
 
+
+
         recyclerView.adapter = adapter
 
         // Status Buttons
