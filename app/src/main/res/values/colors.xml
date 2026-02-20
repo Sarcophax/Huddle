@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="pending">#94a3b8</color>
+    <color name="doing">#fbbf24</color>
+    <color name="finish">#10b981</color>
+    <color name="itemMessageBackground">#121212</color>
+
+    <color name="low">#3b82f6</color>
+    <color name="mid">#f97316</color>
+    <color name="high">#c53a3c</color>
+
+    <color name="defaultPrioColor">#191919</color>
+</resources>
