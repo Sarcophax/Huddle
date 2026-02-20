@@ -30,11 +30,11 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/currentDateTxt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#3FFFF7F7"
-                android:text="February 07, 2026"
+                android:text="MM DD, YYYY"
                 android:textColor="@color/white" />
 
         </LinearLayout>

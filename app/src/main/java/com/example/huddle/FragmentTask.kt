@@ -18,6 +18,8 @@ import com.example.huddle.models.HistoryData
 import com.example.huddle.models.TaskData
 import com.example.huddle.viewModel.TaskViewModel
 import kotlinx.coroutines.launch
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 class FragmentTask : Fragment(R.layout.fragment_task) {
 
@@ -40,6 +42,8 @@ class FragmentTask : Fragment(R.layout.fragment_task) {
         recyclerView = view.findViewById<RecyclerView>(R.id.task_recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
+        val currentDateTxt: TextView = view.findViewById(R.id.currentDateTxt)
+
         val statusAllBtn:Button = view.findViewById<Button>(R.id.statusAllBtn)
         val statusPendingBtn:Button = view.findViewById<Button>(R.id.statusPendingBtn)
         val statusDoingBtn:Button = view.findViewById<Button>(R.id.statusDoingBtn)
@@ -48,6 +52,10 @@ class FragmentTask : Fragment(R.layout.fragment_task) {
         val prioLowBtn:Button = view.findViewById<Button>(R.id.prioLowBtn)
         val prioMidBtn:Button = view.findViewById<Button>(R.id.prioMidBtn)
         val prioHighBtn:Button = view.findViewById<Button>(R.id.prioHighBtn)
+
+        val current = LocalDate.now()
+        val formatter = DateTimeFormatter.ofPattern("MMMM dd, yyyy")
+        val formatted = current.format(formatter)
 
         val adapter = TaskAdapter(
             emptyList(),
@@ -75,6 +83,9 @@ class FragmentTask : Fragment(R.layout.fragment_task) {
                 viewModel.deleteTask(clickedTask.taskId)
             },
             )
+
+
+        currentDateTxt.text = formatted
 
         recyclerView.adapter = adapter
 
