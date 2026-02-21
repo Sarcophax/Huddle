@@ -35,7 +35,6 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="#3FFFF7F7"
                 android:text="MM DD, YYYY"
-                
                 android:textColor="@color/white" />
 
         </LinearLayout>
