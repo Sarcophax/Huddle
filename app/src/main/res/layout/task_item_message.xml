@@ -22,11 +22,14 @@
 
         <TextView
             android:id="@+id/prioTxtView"
-            android:layout_width="50dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/item_message_prio_shape"
             android:gravity="center"
-            android:padding="3dp"
+            android:paddingTop="3dp"
+            android:paddingStart="12dp"
+            android:paddingBottom="3dp"
+            android:paddingEnd="12dp"
             android:text="Prio"
             android:textColor="#FFFFFF"
             android:textSize="12dp"
@@ -63,7 +66,7 @@
 
             <TextView
                 android:id="@+id/textView7"
-                android:layout_width="60dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:padding="3dp"
@@ -73,7 +76,7 @@
 
             <TextView
                 android:id="@+id/mentorNameTxt"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="mentor"
                 android:textColor="#8d8b8d" />

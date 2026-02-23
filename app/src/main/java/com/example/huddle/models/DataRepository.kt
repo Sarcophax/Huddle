@@ -13,6 +13,7 @@ object DataRepository {
     val currentUserId: String?
         get() = auth.currentUser?.uid
 
+
     private fun getTasksCollection() = db.collection("HuddleUsers").document("${currentUserId}").collection("tasks")
     private fun getHistoriesCollection() = db.collection("HuddleUsers").document("${currentUserId}").collection("histories")
 
@@ -33,7 +34,10 @@ object DataRepository {
     }
 
     fun addHistory(history: HistoryData) {
-        getHistoriesCollection().add(history)
+        val newDocRef = getHistoriesCollection().document()
+        val historyWithId = history.copy(historyId = newDocRef.id)
+
+        getHistoriesCollection().add(historyWithId)
     }
 
     fun deleteTask(taskId: String) {

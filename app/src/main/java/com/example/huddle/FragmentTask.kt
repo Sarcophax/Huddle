@@ -78,9 +78,7 @@ class FragmentTask : Fragment(R.layout.fragment_task) {
             },
 
             onFinishClicked  = { clickedTask ->
-                viewModel.updateTaskStatus(clickedTask.taskId,2)
-                viewModel.addHistory(HistoryData(clickedTask.taskId, clickedTask.prioLevel, clickedTask.title, clickedTask.details, clickedTask.mentorName))
-                viewModel.deleteTask(clickedTask.taskId)
+                showFinishTaskConfirmationDialog(clickedTask)
             },
             )
 
@@ -156,6 +154,36 @@ class FragmentTask : Fragment(R.layout.fragment_task) {
         }
         alertDialog.show()
     }
+
+    private fun showFinishTaskConfirmationDialog(task: TaskData) {
+        val dialogView = layoutInflater.inflate(R.layout.dialog_delete, null)
+
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setView(dialogView)
+        val alertDialog = builder.create()
+
+        alertDialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+        val title = dialogView.findViewById<TextView>(R.id.deleteTitleTxt)
+        val yesBtn = dialogView.findViewById<Button>(R.id.yesBtn)
+        val noBtn = dialogView.findViewById<Button>(R.id.noBtn)
+
+        title.text = "${task.title}"
+
+        yesBtn.setOnClickListener {
+            viewModel.updateTaskStatus(task.taskId,2)
+            viewModel.addHistory(HistoryData(prioLevel = task.prioLevel, title = task.title, details = task.details, mentorName = task.mentorName))
+            viewModel.deleteTask(task.taskId)
+            alertDialog.dismiss()
+        }
+
+        noBtn.setOnClickListener {
+            alertDialog.dismiss()
+        }
+        alertDialog.show()
+    }
+
+
 }
 
 
